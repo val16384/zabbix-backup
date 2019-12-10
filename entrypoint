@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+
+if [ -z "${DB_SERVER}"] || [ -z "${DB_USER}"] || [-z  "${DB_PASS}"]; then
+  echo "DB_SERVER, DB_USER, DB_PASS  variables is required. Exiting."
+  exit 1
+fi
+
+
+if [ -z "${DB_DUMP_TARGET}" ]; then
+  echo "DB_DUMP_TARGET not provided, defaulting to /tmp"
+  DB_DUMP_TARGET="/tmp"
+fi
+
+
+/zabbix-dump -Z  -H ${DB_SERVER}  -d "zabbix" -u ${DB_USER} -p ${DB_PASS} -o ${DB_DUMP_TARGET}
