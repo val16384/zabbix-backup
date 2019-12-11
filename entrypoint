@@ -13,5 +13,4 @@ if [ -z "${DB_DUMP_TARGET}" ]; then
   DB_DUMP_TARGET="/tmp"
 fi
 
-
 /zabbix-dump -Z  -H ${DB_SERVER}  -d "zabbix" -u ${DB_USER} -p ${DB_PASS} -o ${DB_DUMP_TARGET}
